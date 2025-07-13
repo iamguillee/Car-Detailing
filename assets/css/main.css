@@ -2573,8 +2573,9 @@ button,
   background-color: transparent;
   border-radius: 0.375em;
   border: 0;
-  box-shadow: inset 0 0 0 2px #f56a6a;
-  color: #f56a6a !important;
+  background-color: #000;
+  box-shadow: inset 0 0 0 2px #fff;
+  color: #fff !important;
   cursor: pointer;
   display: inline-block;
   font-family: "Roboto Slab", serif;
@@ -2590,12 +2591,21 @@ button,
   white-space: nowrap;
 }
 
+#banner .video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover,
 button:hover,
 .button:hover {
-  background-color: rgba(245, 106, 106, 0.05);
+  background-color: rgb(255, 255, 255);
+  color: #000 !important;
 }
 
 input[type="submit"]:active,
@@ -2603,7 +2613,8 @@ input[type="reset"]:active,
 input[type="button"]:active,
 button:active,
 .button:active {
-  background-color: rgba(245, 106, 106, 0.15);
+  background-color: rgb(255, 255, 255);
+  color: #000;
 }
 
 input[type="submit"].icon:before,
@@ -2645,9 +2656,9 @@ input[type="reset"].primary,
 input[type="button"].primary,
 button.primary,
 .button.primary {
-  background-color: #f56a6a;
+  background-color: #fff;
   box-shadow: none;
-  color: #ffffff !important;
+  color: #000 !important;
 }
 
 input[type="submit"].primary:hover,
@@ -2655,7 +2666,7 @@ input[type="reset"].primary:hover,
 input[type="button"].primary:hover,
 button.primary:hover,
 .button.primary:hover {
-  background-color: #f67878;
+  background-color: #fff;
 }
 
 input[type="submit"].primary:active,
@@ -2663,7 +2674,7 @@ input[type="reset"].primary:active,
 input[type="button"].primary:active,
 button.primary:active,
 .button.primary:active {
-  background-color: #f45c5c;
+  background-color: #fff;
 }
 
 input[type="submit"].disabled,
@@ -2762,7 +2773,7 @@ button:disabled,
 }
 
 .features article .icon:before {
-  color: #f56a6a;
+  color: #fff;
   font-size: 2.75rem;
   position: relative;
   top: 0.05em;
@@ -3376,7 +3387,7 @@ button:disabled,
   }
 
   #sidebar .toggle:after {
-    background: rgba(30, 30, 31, 0.75);
+    background: rgba(2, 2, 2, 0.75);
     border-radius: 0.375em;
     content: '';
     height: 3.5em;
@@ -3668,4 +3679,28 @@ button:disabled,
 
 #sidebar .toggle:before {
   color: white !important;
+}
+
+body.is-preload #sidebar {
+  margin-left: -26em !important;
+  transition: none !important;
+}
+
+input[type="date"] {
+  height: 3em;
+  /* Igual que los otros inputs */
+  padding: 0 0.75em;
+  font-size: 1em;
+  color: #000;
+  border: none;
+  border-radius: 0.375em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+select {
+	color: #000 !important; /* Negro visible */
+	background-color: #fff; /* Fondo blanco */
 }
