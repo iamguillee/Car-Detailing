@@ -2,9 +2,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'] ?? '';
@@ -13,38 +13,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = $_POST['date'] ?? '';
     $message = $_POST['message'] ?? '';
 
+    // Validación básica de email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Invalid email address. Please check it and try again.'); window.history.back();</script>";
+        exit;
+    }
+
     $mail = new PHPMailer(true);
 
     try {
-        // Configuración del servidor SMTP
+        // Configuración SMTP
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com'; // o tu servidor
+        $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'TUCORREO@gmail.com';
-        $mail->Password   = 'TUPASSWORDOAPP';
+        $mail->Username   = 'scar89965@gmail.com'; // tu correo del negocio
+        $mail->Password   = 'rrjwdadfqhhehhey'; // contraseña de app (no la normal)
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
-        // Emisor y receptor
-        $mail->setFrom('TUCORREO@gmail.com', 'Car Detailing');
-        $mail->addAddress('EMPLEADO@ejemplo.com');
-
-        // Contenido
+        // ========== Correo al negocio ==========
+        $mail->setFrom('scar89965@gmail.com', 'Car Detailing');
+        $mail->addAddress('empleado@cardetailing.com'); // destinatario interno
         $mail->isHTML(true);
-        $mail->Subject = 'Nueva cita agendada';
-        $mail->Body    = "
-            <h3>Datos del cliente:</h3>
-            <p><strong>Nombre:</strong> $name</p>
+        $mail->Subject = '🧽 New Appointment Booked';
+        $mail->Body = "
+            <h3>New appointment details:</h3>
+            <p><strong>Name:</strong> $name</p>
             <p><strong>Email:</strong> $email</p>
-            <p><strong>Teléfono:</strong> $phone</p>
-            <p><strong>Fecha de cita:</strong> $date</p>
-            <p><strong>Mensaje:</strong> $message</p>
+            <p><strong>Phone:</strong> $phone</p>
+            <p><strong>Date:</strong> $date</p>
+            <p><strong>Message:</strong> $message</p>
         ";
-
         $mail->send();
-        echo "Correo enviado correctamente";
+
+        // ========== Correo de confirmación al cliente ==========
+        $mail->clearAddresses();
+        $mail->addAddress($email); // cliente
+        $mail->Subject = '✅ Appointment Confirmation - Car Detailing';
+        $mail->Body = "
+            <h2>Thank you, $name!</h2>
+            <p>Your appointment request has been received.</p>
+            <p><strong>Date:</strong> $date</p>
+            <p>We’ll contact you shortly to confirm and discuss your service details.</p>
+            <br>
+            <p>Best regards,<br><strong>Car Detailing Team</strong></p>
+        ";
+        $mail->send();
+
+        echo "<script>alert('Your booking was successfully submitted! A confirmation email has been sent.'); window.location.href='../about.html';</script>";
+
     } catch (Exception $e) {
-        echo "Error al enviar correo: {$mail->ErrorInfo}";
+        echo "<script>alert('Error sending email: {$mail->ErrorInfo}'); window.history.back();</script>";
     }
 }
 ?>
