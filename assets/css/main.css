@@ -259,7 +259,7 @@ a {
 }
 
 a:hover {
-  border-bottom-color: #fff;
+  border-bottom-color: white;
   color: #fff !important;
 }
 
@@ -1893,7 +1893,7 @@ header p {
 }
 
 header.major> :last-child {
-  border-bottom: solid 3px #fff;
+  border-bottom: solid 3px white;
   display: inline-block;
   margin: 0 0 2em 0;
   padding: 0 0.75em 0.5em 0;
@@ -1960,7 +1960,7 @@ input[type="url"]:focus,
 select:focus,
 textarea:focus {
   border-color: #f56a6a;
-  box-shadow: 0 0 0 1px #f56a6a;
+  box-shadow: 0 0 0 1px red;
 }
 
 select {
@@ -2468,7 +2468,7 @@ ul.pagination li>.page.active:hover {
 }
 
 ul.pagination li>.page.active:active {
-  background-color: #f45c5c;
+  background-color: red;
 }
 
 ul.pagination li:first-child {
@@ -2573,8 +2573,8 @@ button,
   background-color: transparent;
   border-radius: 0.375em;
   border: 0;
-  background-color: #000;
-  box-shadow: inset 0 0 0 2px #fff;
+  background-color: red;
+  box-shadow: inset 0 0 0 2px red;
   color: #fff !important;
   cursor: pointer;
   display: inline-block;
@@ -2604,8 +2604,8 @@ input[type="reset"]:hover,
 input[type="button"]:hover,
 button:hover,
 .button:hover {
-  background-color: rgb(255, 255, 255);
-  color: #000 !important;
+  background-color: red;
+  color: #fff !important;
 }
 
 input[type="submit"]:active,
@@ -2613,8 +2613,8 @@ input[type="reset"]:active,
 input[type="button"]:active,
 button:active,
 .button:active {
-  background-color: rgb(255, 255, 255);
-  color: #000;
+  background-color: red;
+  color: #fff;
 }
 
 input[type="submit"].icon:before,
@@ -2656,9 +2656,9 @@ input[type="reset"].primary,
 input[type="button"].primary,
 button.primary,
 .button.primary {
-  background-color: #fff;
+  background-color: red;
   box-shadow: none;
-  color: #000 !important;
+  color: #fff !important;
 }
 
 input[type="submit"].primary:hover,
@@ -2666,7 +2666,7 @@ input[type="reset"].primary:hover,
 input[type="button"].primary:hover,
 button.primary:hover,
 .button.primary:hover {
-  background-color: #fff;
+  background-color: red;
 }
 
 input[type="submit"].primary:active,
@@ -2674,7 +2674,7 @@ input[type="reset"].primary:active,
 input[type="button"].primary:active,
 button.primary:active,
 .button.primary:active {
-  background-color: #fff;
+  background-color: red;
 }
 
 input[type="submit"].disabled,
@@ -3108,7 +3108,7 @@ button:disabled,
 
 #main>.inner>section {
   padding: 6em 0 4em 0;
-  border-top: solid 2px rgba(210, 215, 217, 0.75);
+  border-top: solid 2px white;
 }
 
 #main>.inner>section:first-of-type {
@@ -3404,7 +3404,7 @@ button:disabled,
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  border-bottom: solid 5px #fff;
+  border-bottom: solid 5px white;
   padding: 6em 0 1em 0;
   position: relative;
 }
@@ -3568,7 +3568,7 @@ button:disabled,
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #3d4449;
+  color: rgba(133, 133, 133, 0.377);
   font-family: "Roboto Slab", serif;
   font-weight: 400;
   letter-spacing: 0.075em;
@@ -3703,4 +3703,243 @@ textarea,
 select {
 	color: #000 !important; /* Negro visible */
 	background-color: #fff; /* Fondo blanco */
+}
+
+/* ===== ESTILOS PERSONALIZADOS SWEETALERT ===== */
+/* Centrar texto del botón SweetAlert */
+.swal-button,
+.swal-button--confirm,
+button.swal-button {
+    background-color: #7CD1F9 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 5px !important;
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    outline: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: normal !important;
+    vertical-align: middle !important;
+}
+
+.swal-button:hover,
+.swal-button--confirm:hover,
+button.swal-button:hover {
+    background-color: #7CD1F9 !important;
+    color: white !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.swal-button:focus,
+.swal-button--confirm:focus,
+button.swal-button:focus {
+    background-color: #7CD1F9 !important;
+    color: white !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.swal-button:active,
+.swal-button--confirm:active,
+button.swal-button:active {
+    background-color: #5CB8E0 !important;
+    color: white !important;
+}
+
+/* ===== ESTILOS MEJORADOS PARA FORMULARIO DE CITAS ===== */
+
+/* Contenedor principal del formulario */
+form {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    padding: 3em;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Títulos de secciones */
+form h4 {
+    color: #fff;
+    font-size: 1.3em;
+    margin-bottom: 1.5em;
+    margin-top: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid white;
+    position: relative;
+}
+
+form h4:before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: #fff;
+}
+
+/* Inputs mejorados */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"] {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 2px solid transparent !important;
+    border-radius: 10px !important;
+    padding: 0.9em 1.2em !important;
+    font-size: 1em !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus {
+    border-color: red !important;
+    box-shadow: 0 5px 20px rgba(245, 106, 106, 0.3) !important;
+    transform: translateY(-2px);
+}
+
+/* Sección de paquetes con cards */
+.package-section {
+    background: rgba(14, 12, 12, 0.05);
+    padding: 2em;
+    border-radius: 12px;
+    margin-top: 2em;
+    backdrop-filter: blur(10px);
+}
+
+/* Radio buttons mejorados */
+input[type="radio"] + label {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1em 1.5em;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;  
+    display: block;
+    text-align: center;
+    font-weight: 600;
+}
+
+input[type="radio"] + label:hover {
+    background: rgba(245, 106, 106, 0.2);
+    border-color: red;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(245, 106, 106, 0.3);
+}
+
+input[type="radio"]:checked + label {
+    background: linear-gradient(135deg, red 0%, red 100%);
+    border-color: red;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px red;
+}
+
+/* Checkboxes mejorados */
+input[type="checkbox"] + label {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.8em 1.2em;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+}
+
+input[type="checkbox"] + label:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: red;
+    transform: translateY(-2px);
+}
+
+input[type="checkbox"]:checked + label {
+    background: linear-gradient(135deg, red 0%, red 100%);
+    border-color: red;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 5px 15px red;
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+form .row > div {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+form .row > div:nth-child(1) { animation-delay: 0.1s; }
+form .row > div:nth-child(2) { animation-delay: 0.2s; }
+form .row > div:nth-child(3) { animation-delay: 0.3s; }
+form .row > div:nth-child(4) { animation-delay: 0.4s; }
+form .row > div:nth-child(5) { animation-delay: 0.5s; }
+form .row > div:nth-child(6) { animation-delay: 0.6s; }
+form .row > div:nth-child(7) { animation-delay: 0.7s; }
+
+/* ===== FIX PARA SIDEBAR ===== */
+/* Asegurar que el formulario no se mueva con el sidebar */
+#main {
+    position: relative;
+    z-index: 1;
+}
+
+#sidebar {
+    z-index: 10001 !important;
+}
+
+/* Evitar que el contenido se desplace */
+body.is-preload #wrapper,
+#wrapper {
+    overflow-x: hidden;
+}
+
+/* Hacer que el formulario sea más estrecho cuando el sidebar está abierto */
+@media screen and (max-width: 1280px) {
+    form {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    
+    /* Prevenir overflow horizontal */
+    .package-section {
+        overflow-x: hidden;
+    }
+    
+    .package-section .row {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
+
+/* En pantallas pequeñas, hacer los paquetes verticales */
+@media screen and (max-width: 980px) {
+    .package-section .col-3,
+    .package-section .col-4 {
+        width: 100% !important;
+        margin-bottom: 1em;
+    }
+}
+
+/* Ajustar el contenedor cuando sidebar está activo */
+#sidebar:not(.inactive) ~ #main {
+    margin-right: 0;
 }

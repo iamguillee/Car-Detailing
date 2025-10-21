@@ -39,45 +39,6 @@
                 <!-- Content -->
                 <!-- Content -->
                 <section>
-                    <header class="main">
-                        <h1>Book an Appointment</h1>
-                        <p>Schedule your car detailing appointment with our expert team. Provide your details and
-                            preferred date to reserve your spot. We'll take care of everything else!</p>
-                    </header>
-
-                    <h2 id="content">Our Detailing Services</h2>
-                    <p>At Car Detailing, we provide a variety of services to restore your car’s beauty inside and out.
-                        Whether you need a quick wash or a full interior and exterior detail, our skilled professionals
-                        use the latest techniques and high-quality products to deliver amazing results.</p>
-
-                    <div class="row">
-                        <div class="col-6 col-12-small">
-                            <h3>Exterior Detailing</h3>
-                            <p>Includes hand wash, waxing, paint polishing, tire cleaning, and window treatment to bring
-                                back your car’s shine and protect the paint.</p>
-                        </div>
-                        <div class="col-6 col-12-small">
-                            <h3>Interior Detailing</h3>
-                            <p>Deep cleaning of carpets, seats, dashboard, and windows. We use specialized cleaners to
-                                remove stains, odors, and dust for a fresh and clean interior.</p>
-                        </div>
-                        <div class="col-4 col-12-medium">
-                            <h3>Engine Cleaning</h3>
-                            <p>Safe and thorough cleaning of your car’s engine to improve performance and appearance.
-                            </p>
-                        </div>
-                        <div class="col-4 col-12-medium">
-                            <h3>Headlight Restoration</h3>
-                            <p>Restore clarity and brightness to your headlights for better visibility and safety.</p>
-                        </div>
-                        <div class="col-4 col-12-medium">
-                            <h3>Additional Services</h3>
-                            <p>We also offer ceramic coating, odor removal, scratch repair, and more. Ask us for
-                                details!</p>
-                        </div>
-                    </div>
-
-                    <hr class="major" />
 
                     <h2>How to Book</h2>
                     <p>Fill out the form below with your details and preferred date. Once your appointment is confirmed,
@@ -85,26 +46,98 @@
                     </p>
 
                     <!-- Booking Form -->
-                    <form method="post" action="/php/Email/sendEmail.php">
+                    <form method="post" action="php/Email/sendEmail.php">
                         <div class="row gtr-uniform">
+                            <!-- First Name -->
                             <div class="col-6 col-12-xsmall">
-                                <input type="text" name="name" id="name" placeholder="Full Name" required />
+                                <input type="text" name="first_name" id="first_name" placeholder="First Name"
+                                    required />
                             </div>
+                            <!-- Last Name -->
+                            <div class="col-6 col-12-xsmall">
+                                <input type="text" name="last_name" id="last_name" placeholder="Last Name" required />
+                            </div>
+
+                            <!-- Email -->
                             <div class="col-6 col-12-xsmall">
                                 <input type="email" name="email" id="email" placeholder="Email Address" required />
                             </div>
+                            <!-- Phone -->
                             <div class="col-6 col-12-xsmall">
                                 <input type="tel" name="phone" id="phone" placeholder="Phone Number" required />
                             </div>
+
+                            <!-- Date -->
                             <div class="col-6 col-12-xsmall">
                                 <input type="date" name="date" id="date" required />
                             </div>
-                            <div class="col-12">
-                                <textarea name="message" id="message" placeholder="Additional notes or requests"
-                                    rows="4"></textarea>
+                            <!-- Time -->
+                            <div class="col-6 col-12-xsmall">
+                                <input type="time" name="time" id="time" required />
                             </div>
+
+                            <!-- Address -->
                             <div class="col-12">
-                                <ul class="actions">
+                                <input type="text" name="address" id="address" placeholder="Address" required />
+                            </div>
+
+                            <!-- Service Packages -->
+                            <div class="col-12 package-section">
+                                <h4>Select Your Package</h4>
+                                <div class="row gtr-uniform">
+                                    <div class="col-3 col-6-medium col-6-small">
+                                        <input type="radio" id="premium_package" name="package" value="Premium Package"
+                                            required>
+                                        <label for="premium_package">Premium Package</label>
+                                    </div>
+                                    <div class="col-3 col-6-medium col-6-small">
+                                        <input type="radio" id="medium_package" name="package" value="Medium Package">
+                                        <label for="medium_package">Medium Package</label>
+                                    </div>
+                                    <div class="col-3 col-6-medium col-6-small">
+                                        <input type="radio" id="basic_package" name="package" value="Basic Package">
+                                        <label for="basic_package">Basic Package</label>
+                                    </div>
+                                    <div class="col-3 col-6-medium col-6-small">
+                                        <input type="radio" id="pressure_wash" name="package" value="Pressure Washing">
+                                        <label for="pressure_wash">Pressure Washing</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Extra Services -->
+                            <div class="col-12 package-section">
+                                <h4>Additional Services (Optional)</h4>
+                                <div class="row gtr-uniform">
+                                    <div class="col-4 col-6-medium col-6-small">
+                                        <input type="checkbox" id="engine_wash" name="extras[]" value="Engine Wash">
+                                        <label for="engine_wash">Engine Wash</label>
+                                    </div>
+                                    <div class="col-4 col-6-medium col-6-small">
+                                        <input type="checkbox" id="strong_odor" name="extras[]"
+                                            value="Strong Odor Eliminator">
+                                        <label for="strong_odor">Odor Eliminator</label>
+                                    </div>
+                                    <div class="col-4 col-6-medium col-6-small">
+                                        <input type="checkbox" id="wax_application" name="extras[]"
+                                            value="Wax Application">
+                                        <label for="wax_application">Wax Application</label>
+                                    </div>
+                                    <div class="col-4 col-6-medium col-6-small">
+                                        <input type="checkbox" id="seat_cleaning" name="extras[]" value="Seat Cleaning">
+                                        <label for="seat_cleaning">Seat Cleaning</label>
+                                    </div>
+                                    <div class="col-4 col-6-medium col-6-small">
+                                        <input type="checkbox" id="headlight_restore" name="extras[]"
+                                            value="Headlight Restoration">
+                                        <label for="headlight_restore">Headlight Restoration</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Buttons -->
+                            <div class="col-12" style="margin-top: 3em;">
+                                <ul class="actions special">
                                     <li><input type="submit" value="Book Now" class="primary" /></li>
                                     <li><input type="reset" value="Reset" /></li>
                                 </ul>
@@ -159,6 +192,8 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/sweetalert.min.js"></script>
+    <script src="assets/js/validation.js"></script>
 
 </body>
 
