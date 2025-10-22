@@ -4464,14 +4464,14 @@ body.is-preload #wrapper,
 }
 
 .service-price {
-  font-size: 1.8em !important;
-  color: #4CAF50 !important;
+  font-size: 1.4em !important;
+  color: #fff !important;
   font-weight: 700 !important;
 }
 
 .service-time {
   font-size: 1.4em !important;
-  color: #7CD1F9 !important;
+  color: #fff !important;
   font-weight: 600 !important;
 }
 
