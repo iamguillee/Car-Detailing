@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 
 <head>
@@ -13,20 +8,13 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
-<!-- Template: Editorial by HTML5 UP - https://html5up.net | Licensed under CC BY 3.0 -->
-
 <body class="is-preload">
-
-	<!-- Wrapper -->
 	<div id="wrapper">
-
-		<!-- Main -->
 		<div id="main">
 			<div class="inner">
-
 				<!-- Header -->
 				<header id="header">
-					<a href="index.html" class="logo"><strong>Car Detailling</strong></a>
+					<a href="index.html" class="logo"><strong>Car Detailing</strong></a>
 					<ul class="icons">
 						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -36,65 +24,53 @@
 					</ul>
 				</header>
 
-				<!-- Content -->
-				<!-- Section -->
+				<!-- Services Section -->
 				<section>
 					<header class="major">
-						<h2>Services</h2>
+						<h2>Our Services</h2>
 					</header>
 					<div class="posts">
+						<!-- Premium Package -->
 						<article>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-							<h3>Interdum aenean</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam
-								facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<h3>Premium Package</h3>
+							<p>Our top-tier service with complete paint decontamination, ceramic polish, and premium
+								interior treatment for show-quality results.</p>
 							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
+								<li><a href="#" class="button" onclick="openServiceModal('premium'); return false;">More
+										Details</a></li>
 							</ul>
 						</article>
+
+						<!-- Medium Package -->
 						<article>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-							<h3>Nulla amet dolore</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam
-								facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<h3>Medium Package</h3>
+							<p>Deep cleaning with wax protection, detailed interior work, and plastic restoration for a
+								refreshed look.</p>
 							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
+								<li><a href="#" class="button" onclick="openServiceModal('medium'); return false;">More
+										Details</a></li>
 							</ul>
 						</article>
+
+						<!-- Basic Package -->
 						<article>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-							<h3>Tempus ullamcorper</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam
-								facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<h3>Basic Package</h3>
+							<p>Quick maintenance service including exterior wash, tire shine, vacuum, and basic interior
+								cleaning.</p>
 							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
+								<li><a href="#" class="button" onclick="openServiceModal('basic'); return false;">More
+										Details</a></li>
 							</ul>
 						</article>
+
+						<!-- Pressure Washing -->
 						<article>
-							<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-							<h3>Sed etiam facilis</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam
-								facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<h3>Pressure Washing</h3>
+							<p><strong>Custom Pricing</strong></p>
+							<p>Professional pressure washing for garages, walls, sidewalks, roofs, and more.</p>
 							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-							<h3>Feugiat lorem aenean</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam
-								facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-							<h3>Amet varius aliquam</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam
-								facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
+								<li><a href="#" class="button"
+										onclick="openServiceModal('pressure'); return false;">More Details</a></li>
 							</ul>
 						</article>
 					</div>
@@ -105,8 +81,6 @@
 		<!-- Sidebar -->
 		<div id="sidebar">
 			<div class="inner">
-
-				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
 						<h2>Menu</h2>
@@ -120,7 +94,6 @@
 					</ul>
 				</nav>
 
-				<!-- Section -->
 				<section>
 					<header class="major">
 						<h2>Contact</h2>
@@ -128,14 +101,37 @@
 					<p>Have questions? Need a quote? Let us know!</p>
 					<ul class="contact">
 						<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-						<li class="icon solid fa-phone">(000) 000-0000</li>
-						<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-							Nashville, TN 00000-0000</li>
+						<li class="icon solid fa-phone">(409) 916-9378</li>
 					</ul>
 				</section>
 			</div>
 		</div>
+	</div>
 
+	<!-- Modal para detalles del servicio -->
+	<div id="serviceModal" class="modal">
+		<div class="modal-content">
+			<span class="close" onclick="closeServiceModal()">&times;</span>
+
+			<!-- Carousel de imágenes -->
+			<div class="carousel-container">
+				<div class="carousel" id="serviceCarousel">
+					<!-- Las imágenes se insertarán dinámicamente -->
+				</div>
+				<button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+				<button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
+			</div>
+
+			<!-- Contenido del servicio -->
+			<div class="service-details" id="serviceDetails">
+				<!-- El contenido se insertará dinámicamente -->
+			</div>
+
+			<!-- Botón de reserva -->
+			<div class="modal-footer">
+				<a href="booking.html" class="button primary large">Book This Service</a>
+			</div>
+		</div>
 	</div>
 
 	<!-- Scripts -->
@@ -145,7 +141,7 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/sidebar.js"></script>
-
+	<script src="assets/js/services-modal.js"></script>
 </body>
 
 </html>
