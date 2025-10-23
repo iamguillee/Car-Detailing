@@ -2591,6 +2591,76 @@ button,
   white-space: nowrap;
 }
 
+/* Sobrescribir estilo para botón Reset */
+input[type="reset"] {
+  background-color: #fff !important;
+  box-shadow: inset 0 0 0 2px #fff !important;
+  color: #000 !important;
+}
+
+input[type="reset"]:hover {
+  background-color: #f5f5f5 !important;
+  box-shadow: inset 0 0 0 2px #000 !important;
+}
+
+/* Sobrescribir estilo para botón Reset - TODOS LOS ESTADOS */
+input[type="reset"] {
+  background-color: #fff !important;
+  box-shadow: inset 0 0 0 2px #fff !important;
+  color: #000 !important;
+}
+
+input[type="reset"]:hover {
+  background-color: #f5f5f5 !important;
+  box-shadow: inset 0 0 0 2px #f5f5f5 !important;
+  color: #000 !important;
+}
+
+input[type="reset"]:active {
+  background-color: #e0e0e0 !important;
+  box-shadow: inset 0 0 0 2px #e0e0e0 !important;
+  color: #000 !important;
+}
+
+input[type="reset"]:focus {
+  background-color: #fff !important;
+  box-shadow: inset 0 0 0 2px #fff !important;
+  color: #000 !important;
+}
+
+/* Sobrescribir COMPLETAMENTE el botón Reset */
+form input[type="reset"],
+ul.actions input[type="reset"],
+.actions input[type="reset"] {
+  background-color: #fff !important;
+  box-shadow: inset 0 0 0 2px #fff !important;
+  color: #000 !important;
+}
+
+form input[type="reset"]:hover,
+ul.actions input[type="reset"]:hover,
+.actions input[type="reset"]:hover,
+form input[type="reset"]:active,
+ul.actions input[type="reset"]:active,
+.actions input[type="reset"]:active,
+form input[type="reset"]:focus,
+ul.actions input[type="reset"]:focus,
+.actions input[type="reset"]:focus {
+  background-color: #e8e8e8 !important;
+  box-shadow: inset 0 0 0 2px #e8e8e8 !important;
+  color: #000 !important;
+}
+
+/* Forzar color de texto negro en TODOS los escenarios posibles */
+input[type="reset"],
+input[type="reset"]:hover,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="reset"]:visited {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
 #banner .video video {
   width: 100%;
   height: 100%;
@@ -3108,7 +3178,7 @@ button:disabled,
 
 #main>.inner>section {
   padding: 6em 0 4em 0;
-  border-top: solid 2px white;
+  border-top: solid 2px red;
 }
 
 #main>.inner>section:first-of-type {
@@ -3835,7 +3905,6 @@ input[type="radio"]+label:hover {
   background: rgba(245, 106, 106, 0.2);
   border-color: red;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(245, 106, 106, 0.3);
 }
 
 input[type="radio"]:checked+label {
@@ -3843,7 +3912,6 @@ input[type="radio"]:checked+label {
   border-color: red;
   color: #fff;
   transform: scale(1.05);
-  box-shadow: 0 8px 20px red;
 }
 
 /* Checkboxes mejorados */
@@ -3869,7 +3937,6 @@ input[type="checkbox"]:checked+label {
   border-color: red;
   color: #fff;
   font-weight: 600;
-  box-shadow: 0 5px 15px red;
 }
 
 /* Animaciones de entrada */
@@ -4213,7 +4280,7 @@ body.is-preload #wrapper,
 /* ===== COLORES PARA SERVICIOS ===== */
 
 /* Premium Package - Dorado */
-.posts article:nth-child(1) h3 {
+.posts article:nth-child(3) h3 {
   background: linear-gradient(135deg, #FFD700 0%, #FFD700 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -4221,12 +4288,12 @@ body.is-preload #wrapper,
   font-weight: 700;
 }
 
-.posts article:nth-child(1) .button {
+.posts article:nth-child(3) .button {
   border-color: #fff !important;
   color: #fff !important;
 }
 
-.posts article:nth-child(1) .button:hover {
+.posts article:nth-child(3) .button:hover {
   background-color: red !important;
   color: #fff !important;
 }
@@ -4251,7 +4318,7 @@ body.is-preload #wrapper,
 }
 
 /* Basic Package - Bronce */
-.posts article:nth-child(3) h3 {
+.posts article:nth-child(1) h3 {
   background: linear-gradient(135deg, #CD7F32 0%, #8B4513 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -4259,12 +4326,12 @@ body.is-preload #wrapper,
   font-weight: 700;
 }
 
-.posts article:nth-child(3) .button {
+.posts article:nth-child(1) .button {
   border-color: #fff !important;
   color: #fff !important;
 }
 
-.posts article:nth-child(3) .button:hover {
+.posts article:nth-child(1) .button:hover {
   background-color: red !important;
   color: #fff !important;
 }
@@ -4292,13 +4359,11 @@ body.is-preload #wrapper,
 .posts article h3 {
   position: relative;
   display: inline-block;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
 }
 
 .posts article:hover h3 {
   transform: scale(1.05);
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
 }
 
 .title-h3 {
@@ -4344,7 +4409,7 @@ body.is-preload #wrapper,
 /* ===== ESTILOS DE CARDS PARA SERVICIOS ===== */
 .posts article {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
-  border: 2px solid rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
   border-radius: 15px !important;
   padding: 2.5em !important;
   transition: all 0.4s ease !important;
@@ -4359,45 +4424,20 @@ body.is-preload #wrapper,
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Borde de color según el servicio */
-.posts article:nth-child(1) {
-  border-color: rgba(255, 215, 0, 0.4) !important;
-  /* Dorado para Premium */
-}
-
-.posts article:nth-child(1):hover {
-  border-color: rgba(255, 215, 0, 0.8) !important;
-  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3) !important;
-}
-
-.posts article:nth-child(2) {
-  border-color: rgba(192, 192, 192, 0.4) !important;
-  /* Plateado para Medium */
+.posts article:nth-child(3):hover {
+  border-color: #999 !important;
 }
 
 .posts article:nth-child(2):hover {
-  border-color: rgba(192, 192, 192, 0.8) !important;
-  box-shadow: 0 15px 40px rgba(192, 192, 192, 0.3) !important;
+  border-color: #999 !important;
 }
 
-.posts article:nth-child(3) {
-  border-color: rgba(205, 127, 50, 0.4) !important;
-  /* Bronce para Basic */
-}
-
-.posts article:nth-child(3):hover {
-  border-color: rgba(205, 127, 50, 0.8) !important;
-  box-shadow: 0 15px 40px rgba(205, 127, 50, 0.3) !important;
-}
-
-.posts article:nth-child(4) {
-  border-color: rgba(0, 206, 209, 0.4) !important;
-  /* Azul para Pressure */
+.posts article:nth-child(1):hover {
+  border-color: #999 !important;
 }
 
 .posts article:nth-child(4):hover {
-  border-color: rgba(0, 206, 209, 0.8) !important;
-  box-shadow: 0 15px 40px rgba(0, 206, 209, 0.3) !important;
+  border-color: #999 !important;
 }
 
 /* Efecto de brillo en el fondo al hacer hover */
@@ -4408,7 +4448,7 @@ body.is-preload #wrapper,
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(239, 0, 0, 0.05) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -4421,7 +4461,7 @@ body.is-preload #wrapper,
 /* Estilo del contenido dentro de las cards */
 .posts article h3 {
   margin-bottom: 1em !important;
-  font-size: 1.8em !important;
+  font-size: 1.4em !important;
 }
 
 .posts article p {
@@ -4482,3 +4522,281 @@ body.is-preload #wrapper,
     gap: 1.5em;
   }
 }
+
+#reset.button {
+  background-color: fff !important;
+  color: #fff !important;
+}
+
+/* ===== SERVICIOS EXTRAS - Estilo Neutral ===== */
+.posts-extras {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 2em !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.posts-extras article {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 15px !important;
+  padding: 2em !important;
+  transition: all 0.4s ease !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.posts-extras article:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* IMPORTANTE: Sobrescribir colores de títulos heredados */
+.posts-extras article h3 {
+  color: #fff !important;
+  font-size: 1.4em !important;
+  margin-bottom: 0.8em !important;
+  font-weight: 600 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #fff !important;
+  background-clip: unset !important;
+  text-shadow: none !important;
+}
+
+.posts-extras article h3::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3) !important;
+  margin-top: 0.5em;
+  border-radius: 2px;
+}
+
+.posts-extras article p {
+  color: #bbb !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1em !important;
+}
+
+.posts-extras article p strong {
+  color: #4CAF50 !important;
+  font-size: 1.5em;
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+/* Sobrescribir efectos hover heredados */
+.posts-extras article:hover h3 {
+  transform: none !important;
+  text-shadow: none !important;
+}
+
+/* Sobrescribir efectos de brillo heredados */
+.posts-extras article::before {
+  display: none !important;
+}
+
+/* Estilos para botones de servicios extras */
+.posts-extras article .button {
+  border-color: #fff !important;
+  color: #fff !important;
+  background: red !important;
+}
+
+.posts-extras article .button:hover {
+  background-color: #ff0000 !important;
+  color: #fff !important;
+  border-color: #ff0000 !important;
+}
+
+/* Responsive para servicios extras */
+@media screen and (max-width: 736px) {
+  .posts-extras {
+    grid-template-columns: 1fr !important;
+    gap: 1.5em !important;
+  }
+}
+
+@media screen and (min-width: 737px) and (max-width: 1280px) {
+  .posts-extras {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ===== MODAL COMPACTO PARA SERVICIOS EXTRAS ===== */
+.modal-content.compact {
+  max-width: 700px;
+}
+
+.modal-content.compact .carousel-container {
+  height: 300px;
+}
+
+.modal-content.compact .service-details {
+  padding: 2em;
+}
+
+.modal-content.compact .service-details h2 {
+  font-size: 1.8em;
+}
+
+.modal-content.compact .service-section h3 {
+  font-size: 1.2em;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content.compact {
+    margin: 5% 10px;
+  }
+
+  .modal-content.compact .carousel-container {
+    height: 200px;
+  }
+}
+
+/* Forzar bordes grises en TODOS los servicios extras */
+.posts-extras article:nth-child(1),
+.posts-extras article:nth-child(2),
+.posts-extras article:nth-child(3),
+.posts-extras article:nth-child(4),
+.posts-extras article:nth-child(5) {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.posts-extras article:nth-child(1):hover,
+.posts-extras article:nth-child(2):hover,
+.posts-extras article:nth-child(3):hover,
+.posts-extras article:nth-child(4):hover,
+.posts-extras article:nth-child(5):hover {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ===== FLOATING LABELS ESTILO BOOTSTRAP 5 ===== */
+.floating-label {
+  position: relative;
+  margin-bottom: 1.5em;
+}
+
+.floating-label input {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 10px !important;
+  padding: 1.2em 1.2em 0.6em 1.2em !important;
+  font-size: 1em !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+  width: 100% !important;
+}
+
+.floating-label label {
+  position: absolute;
+  left: 1.2em;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 1em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background: transparent;
+  padding: 0 0.3em;
+}
+
+/* Cuando el input tiene contenido o está enfocado */
+.floating-label input:focus+label,
+.floating-label input:not(:placeholder-shown)+label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.85em;
+  color: red;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0 0.5em;
+  font-weight: 600;
+}
+
+.floating-label input:focus {
+  border-color: red !important;
+  box-shadow: 0 5px 20px rgba(245, 106, 106, 0.3) !important;
+  outline: none;
+}
+
+/* Estilos especiales para date y time */
+.floating-label input[type="date"],
+.floating-label input[type="time"] {
+  color: #333;
+}
+
+/* Para date y time, el label siempre arriba cuando hay valor */
+.floating-label input[type="date"]:valid+label,
+.floating-label input[type="time"]:valid+label,
+.floating-label input[type="date"]:focus+label,
+.floating-label input[type="time"]:focus+label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.85em;
+  color: red;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0 0.5em;
+  font-weight: 600;
+}
+
+/* Ajuste para inputs date y time cuando tienen valor */
+.floating-label input[type="date"]::-webkit-calendar-picker-indicator,
+.floating-label input[type="time"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.floating-label input[type="date"]:hover::-webkit-calendar-picker-indicator,
+.floating-label input[type="time"]:hover::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+
+/* Business Hours en Sidebar */
+.business-hours-sidebar .hours-item {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-bottom: 0.8em;
+  border-left: 3px solid #4CAF50;
+}
+
+.business-hours-sidebar .hours-item.closed {
+  border-left-color: #999;
+  opacity: 0.7;
+}
+
+.business-hours-sidebar .hours-item .icon {
+  font-size: 1.5em;
+  color: #4CAF50;
+}
+
+.business-hours-sidebar .hours-item.closed .icon {
+  color: #999;
+}
+
+.business-hours-sidebar .hours-item strong {
+  color: #fff;
+  display: block;
+  margin-bottom: 0.3em;
+}
+
+.business-hours-sidebar .hours-item p {
+  color: #4CAF50;
+  margin: 0;
+  font-weight: 600;
+}
+
+.business-hours-sidebar .hours-item.closed p {
+  color: #999;
+}
+

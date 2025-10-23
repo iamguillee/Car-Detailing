@@ -50,44 +50,53 @@
                         <div class="row gtr-uniform">
                             <!-- First Name -->
                             <div class="col-6 col-12-xsmall">
-                                <input type="text" name="first_name" id="first_name" placeholder="First Name"
-                                    required />
+                                <div class="floating-label">
+                                    <input type="text" name="first_name" id="first_name" placeholder=" " required />
+                                    <label for="first_name">First Name</label>
+                                </div>
                             </div>
                             <!-- Last Name -->
                             <div class="col-6 col-12-xsmall">
-                                <input type="text" name="last_name" id="last_name" placeholder="Last Name" required />
+                                <div class="floating-label">
+                                    <input type="text" name="last_name" id="last_name" placeholder=" " required />
+                                    <label for="last_name">Last Name</label>
+                                </div>
                             </div>
 
                             <!-- Email -->
                             <div class="col-6 col-12-xsmall">
-                                <input type="email" name="email" id="email" placeholder="Email Address" required />
+                                <div class="floating-label">
+                                    <input type="email" name="email" id="email" placeholder=" " required />
+                                    <label for="email">Email Address</label>
+                                </div>
                             </div>
                             <!-- Phone -->
                             <div class="col-6 col-12-xsmall">
-                                <input type="tel" name="phone" id="phone" placeholder="Phone Number" required />
+                                <div class="floating-label">
+                                    <input type="tel" name="phone" id="phone" placeholder=" " required />
+                                    <label for="phone">Phone Number</label>
+                                </div>
                             </div>
-
-                            <!-- Date -->
+                            <!-- Date con validación -->
                             <div class="col-6 col-12-xsmall">
-                                <input type="date" name="date" id="date" required />
+                                <div class="floating-label">
+                                    <input type="date" name="date" id="date" placeholder=" " required />
+                                    <label for="date">Appointment Date</label>
+                                </div>
                             </div>
-                            <!-- Time -->
-                            <div class="col-6 col-12-xsmall">
-                                <input type="time" name="time" id="time" required />
-                            </div>
-
                             <!-- Address -->
-                            <div class="col-12">
-                                <input type="text" name="address" id="address" placeholder="Address" required />
+                            <div class="col-6 col-12-xsmall">
+                                <div class="floating-label">
+                                    <input type="text" name="address" id="address" placeholder=" " required />
+                                    <label for="address">Address</label>
+                                </div>
                             </div>
-
                             <!-- Service Packages -->
                             <div class="col-12 package-section">
                                 <h4>Select Your Package</h4>
                                 <div class="row gtr-uniform">
                                     <div class="col-3 col-6-medium col-6-small">
-                                        <input type="radio" id="premium_package" name="package" value="Premium Package"
-                                            required>
+                                        <input type="radio" id="premium_package" name="package" value="Premium Package">
                                         <label for="premium_package">Premium Package</label>
                                     </div>
                                     <div class="col-3 col-6-medium col-6-small">
@@ -104,7 +113,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Extra Services -->
                             <div class="col-12 package-section">
                                 <h4>Additional Services (Optional)</h4>
@@ -139,13 +147,12 @@
                             <div class="col-12" style="margin-top: 3em;">
                                 <ul class="actions special">
                                     <li><input type="submit" value="Book Now" class="primary" /></li>
-                                    <li><input type="reset" value="Reset" /></li>
+                                    <li><input type="reset" value="Reset" class="btn btn-danger"/></li>
                                 </ul>
                             </div>
                         </div>
                     </form>
                 </section>
-
             </div>
         </div>
 

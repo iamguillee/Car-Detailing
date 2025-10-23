@@ -14,24 +14,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'] ?? '';
     $phone = $_POST['phone'] ?? '';
     $date = $_POST['date'] ?? '';
-    $time = $_POST['time'] ?? '';
     $address = $_POST['address'] ?? '';
     $package = $_POST['package'] ?? '';
     $extras = $_POST['extras'] ?? [];
 
     $full_name = $first_name . ' ' . $last_name;
 
-    // Convertir hora a 12h con AM/PM
-    if (!empty($time)) {
-        $time_obj = DateTime::createFromFormat('H:i', $time);
-        $time_12hr = $time_obj->format('g:i A');
+    // Formatear fecha a formato más legible
+    if (!empty($date)) {
+        $date_obj = DateTime::createFromFormat('Y-m-d', $date);
+        $formatted_date = $date_obj->format('F j, Y'); // October 23, 2025
     } else {
-        $time_12hr = 'Not specified';
+        $formatted_date = 'Not specified';
     }
 
     // Convertir extras a lista
-    $extras_list = !empty($extras) ? implode(", ", $extras) : "None";
-    $extras_html = !empty($extras) ? "<ul style='margin: 0; padding-left: 20px;'>" : "None";
+    $extras_html = !empty($extras) ? "<ul style='margin: 0; padding-left: 20px;'>" : "<span>None</span>";
     foreach ($extras as $extra) {
         $extras_html .= "<li>$extra</li>";
     }
@@ -64,9 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // ========== Correo al negocio ==========
         $mail->setFrom('scar89965@gmail.com', 'Car Detailing');
-        $mail->addAddress('empleado@cardetailing.com');
+        $mail->addAddress('scar89965@gmail.com');
         $mail->isHTML(true);
-        $mail->Subject = '🧽 New Appointment Booked - ' . $full_name;
+        $mail->Subject = '🧽 New Appointment - ' . $full_name;
         $mail->Body = "
             <div style='font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4;'>
                 <div style='background-color: white; padding: 30px; border-radius: 10px;'>
@@ -75,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h3 style='color: #555; margin-top: 20px;'>Customer Information:</h3>
                     <table style='width: 100%; border-collapse: collapse;'>
                         <tr>
-                            <td style='padding: 10px; border-bottom: 1px solid #ddd;'><strong>Name:</strong></td>
+                            <td style='padding: 10px; border-bottom: 1px solid #ddd;'><strong>Full Name:</strong></td>
                             <td style='padding: 10px; border-bottom: 1px solid #ddd;'>$full_name</td>
                         </tr>
                         <tr>
@@ -96,18 +94,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <table style='width: 100%; border-collapse: collapse;'>
                         <tr>
                             <td style='padding: 10px; border-bottom: 1px solid #ddd;'><strong>Date:</strong></td>
-                            <td style='padding: 10px; border-bottom: 1px solid #ddd;'>$date</td>
+                            <td style='padding: 10px; border-bottom: 1px solid #ddd;'>$formatted_date</td>
                         </tr>
                         <tr>
-                            <td style='padding: 10px; border-bottom: 1px solid #ddd;'><strong>Time:</strong></td>
-                            <td style='padding: 10px; border-bottom: 1px solid #ddd;'>$time_12hr</td>
-                        </tr>
-                        <tr>
-                            <td style='padding: 10px; border-bottom: 1px solid #ddd; vertical-align: top;'><strong>Package Selected:</strong></td>
+                            <td style='padding: 10px; border-bottom: 1px solid #ddd; vertical-align: top;'><strong>Package:</strong></td>
                             <td style='padding: 10px; border-bottom: 1px solid #ddd;'><strong>$package</strong></td>
                         </tr>
                         <tr>
-                            <td style='padding: 10px; border-bottom: 1px solid #ddd; vertical-align: top;'><strong>Extra Services:</strong></td>
+                            <td style='padding: 10px; border-bottom: 1px solid #ddd; vertical-align: top;'><strong>Extras:</strong></td>
                             <td style='padding: 10px; border-bottom: 1px solid #ddd;'>$extras_html</td>
                         </tr>
                     </table>
@@ -128,23 +122,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p style='font-size: 16px;'>Thank you for booking with us! We have received your appointment request.</p>
 
                     <div style='background-color: #f0f8ff; padding: 20px; border-radius: 8px; margin: 20px 0;'>
-                        <h3 style='color: #333; margin-top: 0;'>📋  Your Appointment Details:</h3>
+                        <h3 style='color: #333; margin-top: 0;'>📋 Your Appointment Details:</h3>
                         <table style='width: 100%;'>
                             <tr>
-                                <td style='padding: 8px 0;'><strong>Date:</strong></td>
-                                <td style='padding: 8px 0;'>$date</td>
+                                <td style='padding: 8px 0;'><strong>Full Name:</strong></td>
+                                <td style='padding: 8px 0;'>$full_name</td>
                             </tr>
                             <tr>
-                                <td style='padding: 8px 0;'><strong>Time:</strong></td>
-                                <td style='padding: 8px 0;'>$time_12hr</td>
-                            </tr>
-                            <tr>
-                                <td style='padding: 8px 0; vertical-align: top;'><strong>Package:</strong></td>
+                                <td style='padding: 8px 0;'><strong>Package:</strong></td>
                                 <td style='padding: 8px 0;'><strong>$package</strong></td>
                             </tr>
                             <tr>
                                 <td style='padding: 8px 0; vertical-align: top;'><strong>Extras:</strong></td>
                                 <td style='padding: 8px 0;'>$extras_html</td>
+                            </tr>
+                            <tr>
+                                <td style='padding: 8px 0;'><strong>Date:</strong></td>
+                                <td style='padding: 8px 0;'>$formatted_date</td>
                             </tr>
                             <tr>
                                 <td style='padding: 8px 0;'><strong>Address:</strong></td>
@@ -153,13 +147,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </table>
                     </div>
 
-                    <p style='font-size: 16px;'>We will contact you at <strong>$phone</strong> shortly to confirm your appointment.</p>
+                    <p style='font-size: 16px;'>We will contact you at <strong>$phone</strong> shortly to confirm your appointment and coordinate the service details.</p>
                     
                     <hr style='border: none; border-top: 1px solid #ddd; margin: 30px 0;'>
                     
                     <p style='font-size: 14px; color: #666;'>
                         If you need to reschedule or have questions, please contact us.<br>
-                        <strong>Phone:</strong> (123) 456-7890<br>
+                        <strong>Phone:</strong> (409) 916-9378<br>
                         <strong>Email:</strong> info@cardetailing.com
                     </p>
 

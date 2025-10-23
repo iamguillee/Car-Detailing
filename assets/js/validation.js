@@ -1,23 +1,26 @@
 document.querySelector('form').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    // Validar que se haya seleccionado un paquete
-    const packageSelected = document.querySelector('input[name="package"]:checked');
+    // 1. VALIDAR CAMPOS REQUERIDOS PRIMERO
+    const firstName = document.getElementById('first_name').value.trim();
+    const lastName = document.getElementById('last_name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const date = document.getElementById('date').value;
+    const address = document.getElementById('address').value.trim();
 
-    if (!packageSelected) {
+    if (!firstName || !lastName || !email || !phone || !date || !address) {
         swal({
-            title: "No Package Selected",
-            text: "Please select a service package.",
+            title: "Missing Information",
+            text: "Please fill in all required fields.",
             icon: "warning",
             button: "OK"
         });
         return false;
     }
 
-    // Validar email
-    const email = document.getElementById('email').value;
+    // 2. VALIDAR EMAIL
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     if (!emailRegex.test(email)) {
         swal({
             title: "Invalid Email",
@@ -28,25 +31,34 @@ document.querySelector('form').addEventListener('submit', function (e) {
         return false;
     }
 
-    // Validar campos requeridos
-    const firstName = document.getElementById('first_name').value.trim();
-    const lastName = document.getElementById('last_name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value;
-    const address = document.getElementById('address').value.trim();
+    // 3. VALIDAR FECHA
+    const selectedDate = new Date(date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-    if (!firstName || !lastName || !phone || !date || !time || !address) {
+    if (selectedDate < today) {
         swal({
-            title: "Missing Information",
-            text: "Please fill in all required fields.",
+            title: "Invalid Date",
+            text: "Appointment date cannot be in the past. Please select today or a future date.",
+            icon: "error",
+            button: "OK"
+        });
+        return false;
+    }
+
+    // 4. VALIDAR PAQUETE SELECCIONADO
+    const packageSelected = document.querySelector('input[name="package"]:checked');
+    if (!packageSelected) {
+        swal({
+            title: "No Package Selected",
+            text: "Please select a service package before booking.",
             icon: "warning",
             button: "OK"
         });
         return false;
     }
 
-    // Enviar formulario con AJAX
+    // 5. ENVIAR FORMULARIO
     const formData = new FormData(this);
 
     swal({
@@ -67,7 +79,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
             if (data.success) {
                 swal({
                     title: "Booking Confirmed!",
-                    text: "Your appointment has been submitted successfully! Please check your email for confirmation details.",
+                    text: "Your appointment has been submitted successfully! Check your email for confirmation details.",
                     icon: "success",
                     button: "OK"
                 }).then(() => {
@@ -83,6 +95,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
             }
         })
         .catch(error => {
+            console.error('Error:', error);
             swal({
                 title: "Connection Error",
                 text: "Could not connect to the server. Please check your internet connection.",
@@ -92,53 +105,9 @@ document.querySelector('form').addEventListener('submit', function (e) {
         });
 });
 
-fetch('php/Email/sendEmail.php', {
-    method: 'POST',
-    body: formData
-})
-    .then(response => {
-        console.log('Response status:', response.status);
-        console.log('Response ok:', response.ok);
-        return response.text(); // Cambiar a text() primero para ver qué devuelve
-    })
-    .then(text => {
-        console.log('Raw response:', text);
-        try {
-            const data = JSON.parse(text);
-            if (data.success) {
-                swal({
-                    title: "Booking Confirmed!",
-                    text: "Your appointment has been submitted successfully! Please check your email for confirmation details.",
-                    icon: "success",
-                    button: "OK"
-                }).then(() => {
-                    document.querySelector('form').reset();
-                });
-            } else {
-                swal({
-                    title: "Oops...",
-                    text: data.message || "Error sending email. Please try again later.",
-                    icon: "error",
-                    button: "OK"
-                });
-            }
-        } catch (e) {
-            console.error('JSON parse error:', e);
-            console.error('Response was:', text);
-            swal({
-                title: "Server Error",
-                text: "The server returned an invalid response. Check console for details.",
-                icon: "error",
-                button: "OK"
-            });
-        }
-    })
-    .catch(error => {
-        console.error('Fetch error:', error);
-        swal({
-            title: "Connection Error",
-            text: "Could not connect to the server. Error: " + error.message,
-            icon: "error",
-            button: "OK"
-        });
-    });
+// Establecer fecha mínima (hoy)
+document.addEventListener('DOMContentLoaded', function () {
+    const dateInput = document.getElementById('date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+});
